@@ -13,6 +13,7 @@ const forecast = require('./utils/forecast')  //puede o no llevar .js
 //console.log(__filename)
 
 const app = express()  //generamos la aplicación
+const port = process.env.PORT || 3000 //La toma de la variable de entorno y si no toma la de default 3000
 
 //Define paths for Express config
 const publicDirectoriyPath = path.join(__dirname, '../public')  //Generamos la ruta a usar (estabamos en src)
@@ -118,6 +119,6 @@ app.get('*', (req, res) => {
 
 
 //Levanto el server en terminal node src/app.js    (verlo en el explorar localhost:3000) (Para terminarlo ctrl-c) 
-app.listen(3000, () => {   // (puerto, función)
-   console.log('Server is up on port 3000');
+app.listen(port, () => {   // (puerto, función)
+   console.log('Server is up on port ' + port);
 })
